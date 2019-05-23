@@ -1,4 +1,4 @@
-﻿ALTER TABLE [dbo].[SomeTableOrView]
+﻿ALTER TABLE [dbo].[Address]
 	ADD CONSTRAINT [Address_Individual_FK]
-	FOREIGN KEY (SomeColumn)
-	REFERENCES [SomeTable] (SomeColumn)
+	FOREIGN KEY (IndividualId)
+	REFERENCES [Individual] (Id)

@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DpHomework.Web", "..\DpHomework.Web\DpHomework.Web.csproj", "{E08DD4C0-FC67-44BB-98CE-C85AF6C735D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DpHomework.Web", "..\DpHomework.Web\DpHomework.Web.csproj", "{E08DD4C0-FC67-44BB-98CE-C85AF6C735D9}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DpHomework.Db", "DpHomework.Db\DpHomework.Db.sqlproj", "{F0CA1687-DC5E-46B4-994A-5EAFB9B01068}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DpHomework.Business", "DpHomework.Business\DpHomework.Business.csproj", "{11BC157B-51E1-4B9B-86ED-70ACBB66FC85}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DpHomework.Data", "DpHomework.Data\DpHomework.Data.csproj", "{6EA017A4-EC2C-4DC3-B37B-AA7834A2CEFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DpHomework.Models", "DpHomework.Models\DpHomework.Models.csproj", "{02C12BF5-BDD0-48E2-B2A5-7F64C64F53BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{6EA017A4-EC2C-4DC3-B37B-AA7834A2CEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EA017A4-EC2C-4DC3-B37B-AA7834A2CEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EA017A4-EC2C-4DC3-B37B-AA7834A2CEFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C12BF5-BDD0-48E2-B2A5-7F64C64F53BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C12BF5-BDD0-48E2-B2A5-7F64C64F53BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C12BF5-BDD0-48E2-B2A5-7F64C64F53BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C12BF5-BDD0-48E2-B2A5-7F64C64F53BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
