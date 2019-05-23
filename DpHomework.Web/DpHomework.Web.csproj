@@ -1,16 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="Swashbuckle" Version="5.6.0" />
     <PackageReference Include="vue" Version="2.5.17" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\individuals.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DpHomework\DpHomework.Business\DpHomework.Business.csproj" />
+    <ProjectReference Include="..\DpHomework\DpHomework.Data\DpHomework.Data.csproj" />
+    <ProjectReference Include="..\DpHomework\DpHomework.Models\DpHomework.Models.csproj" />
   </ItemGroup>
 
 </Project>
