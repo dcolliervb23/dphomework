@@ -4,6 +4,7 @@
     ViewBag.Title = "title";
 }
 <div><a href="~/main.html">Go to Main</a></div>
+<div><a href="~/individuals.html">Go to Individual List</a></div>
 
 <h2>Add Address</h2>
 <link href="~/css/site.css" rel="stylesheet" />
@@ -12,7 +13,7 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/addAddress.js"></script>
 <form id="newAddress">
-    <input type="hidden" id="@Model.Id" id="individualId" />
+    <input type="hidden" id="individualId" value="@Model.Id" />
     <div class="row">
         <div class="col-xs-6">
             <div><label for="firstName">First Name: </label><span>@Model.FirstName</span></div>

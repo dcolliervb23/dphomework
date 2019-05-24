@@ -11,45 +11,93 @@
     <div><a href="addindividual.html">Add Individuals</a></div>
     <h2>List of Individuals</h2>
     <div id="app">
-        <div>Displaying {{info.length}} records</div>
-        <ul>
-            <li v-for="randomDude in info">
-                {{randomDude.lastName}}, {{randomDude.firstName}} {{randomDude.middleName}}
+        <div id="summaryText">Displaying {{info.length}} records</div>
+        <table class="table table-striped">
+        <thead class="row">
+            <th >Name</th>
+            <th >Email</th>
+            <th >Addresses</th>
+        </thead>
+        <tr v-for="randomDude in info" class="row">
+            <td>{{randomDude.lastName}}, {{randomDude.firstName}} {{randomDude.middleName}}</td>
+            <td>{{randomDude.email}}</td>
+            <td class="address-text">
+                <ul v-if="randomDude.addresses !== null">
+                    <label>Addresses:</label>
+                    <div><a v-bind:href="'/AddressPage/AddAddress/' + randomDude.id" class="btn btn-info">Add Address</a></div>
+                    <ul>
+                        <li v-for="secretLair in randomDude.addresses" class="address-text">
+                            <div>
+                                <label>Address Line 1: </label><span>{{secretLair.addressLine1}}</span>
+                            </div>
+                            <div>
+                                <label>Address Line 2: </label><span>{{secretLair.addressLine2}}</span>
+                            </div>
+                            <div>
+                                <label>City: </label><span>{{secretLair.city}}</span>
+                            </div>
+                            <div>
+                                <label>State: </label><span>{{secretLair.state}}</span>
+                            </div>
+                            <div>
+                                <label>Zip: </label><span>{{secretLair.zip}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </ul>
+            </td>
+        </tr>
+        </table>
                 <blockquote>
                     <div class="row">
                         <div class="col-xs-6">
-                            <ul><label>Email:</label><span>{{randomDude.email}}</span></ul>
-                            <ul v-if="randomDude.addresses !== null">
-                                <label>Addresses:</label>
-                                <ul>
-                                    <li v-for="secretLair in randomDude.addresses">
-                                        <div>
-                                            <label>Address Line 1: </label><span>{{secretLair.addressLine1}}</span>
-                                        </div>
-                                        <div>
-                                            <label>Address Line 2: </label><span>{{secretLair.addressLine2}}</span>
-                                        </div>
-                                        <div>
-                                            <label>City: </label><span>{{secretLair.city}}</span>
-                                        </div>
-                                        <div>
-                                            <label>State: </label><span>{{secretLair.state}}</span>
-                                        </div>
-                                        <div>
-                                            <label>Zip: </label><span>{{secretLair.zip}}</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </ul>
+
                         </div>
                         <div class="col-xs-6">
-                            <ul><a v-bind:href="'/AddressPage/AddAddress/' + randomDude.id">Add Address</a></ul>
+                            <ul></ul>
                         </div>
                     </div>
 
                 </blockquote>
-            </li>
-        </ul>
+        </div>
+        <!-- <ul> -->
+        <!--     <li v-for="randomDude in info"> -->
+        <!--         {{randomDude.lastName}}, {{randomDude.firstName}} {{randomDude.middleName}} -->
+        <!--         <blockquote> -->
+        <!--             <div class="row"> -->
+        <!--                 <div class="col-xs-6"> -->
+        <!--                     <ul><label>Email:</label><span>{{randomDude.email}}</span></ul> -->
+        <!--                     <ul v-if="randomDude.addresses !== null"> -->
+        <!--                         <label>Addresses:</label> -->
+        <!--                         <ul> -->
+        <!--                             <li v-for="secretLair in randomDude.addresses"> -->
+        <!--                                 <div> -->
+        <!--                                     <label>Address Line 1: </label><span>{{secretLair.addressLine1}}</span> -->
+        <!--                                 </div> -->
+        <!--                                 <div> -->
+        <!--                                     <label>Address Line 2: </label><span>{{secretLair.addressLine2}}</span> -->
+        <!--                                 </div> -->
+        <!--                                 <div> -->
+        <!--                                     <label>City: </label><span>{{secretLair.city}}</span> -->
+        <!--                                 </div> -->
+        <!--                                 <div> -->
+        <!--                                     <label>State: </label><span>{{secretLair.state}}</span> -->
+        <!--                                 </div> -->
+        <!--                                 <div> -->
+        <!--                                     <label>Zip: </label><span>{{secretLair.zip}}</span> -->
+        <!--                                 </div> -->
+        <!--                             </li> -->
+        <!--                         </ul> -->
+        <!--                     </ul> -->
+        <!--                 </div> -->
+        <!--                 <div class="col-xs-6"> -->
+        <!--                     <ul><a v-bind:href="'/AddressPage/AddAddress/' + randomDude.id">Add Address</a></ul> -->
+        <!--                 </div> -->
+        <!--             </div> -->
+        <!-- -->
+        <!--         </blockquote> -->
+        <!--     </li> -->
+        <!-- </ul> -->
     </div>
 
     <!-- <script src="lib/bootstrap/dist/js/bootstrap.js"></script> -->

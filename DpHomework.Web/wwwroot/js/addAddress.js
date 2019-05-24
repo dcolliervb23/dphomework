@@ -4,7 +4,8 @@ $(document).ready(function () {
     $('#addBtn').on('click', function() {
         $.ajax({
             type: "POST",
-            url: "http://localhost:64546/api/address",
+            url: "http://dphomework.azurewebsites.net/api/address",
+//            url: "http://localhost:64546/api/address",
             data: {
                 AddressLine1: $('#addressLine1').val(),
                 AddressLine2: $('#addressLine2').val(),

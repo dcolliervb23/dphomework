@@ -80,7 +80,7 @@ namespace DpHomework.Business
                 City = entity.City,
                 State = entity.State,
                 Zip = entity.Zip,
-                IndividualId = entity.Id
+                IndividualId = entity.IndividualId
             };
         }
 

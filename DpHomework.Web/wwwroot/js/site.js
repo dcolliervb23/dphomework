@@ -8,25 +8,8 @@ new Vue({
     },
     mounted() {
         axios
-            .get('http://localhost:64546/api/individual')
-//            .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+            .get('http://dphomework.azurewebsites.net/api/individual')
+//            .get('http://localhost:64546/api/individual')
             .then(response => (this.info = response.data.data));
     }
-//    methods: {
-//        onSubmit: function(event) {
-//            e.preventDefault();
-//            this.axios.post('http://localhost:64546/api/individual',
-//                    {
-//                        firstName = this.firstName,
-//
-//                    },
-//                    {
-//                        headers: {
-//                            'Content-type': 'application/json'
-//                        }
-//                    }).then(response => this.responseData = response.data)
-//                .catch(error => {});
-//
-//        }
-//    }
 });

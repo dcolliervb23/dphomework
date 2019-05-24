@@ -4,7 +4,8 @@ $(document).ready(function () {
     $('#addBtn').on('click', function() {
         $.ajax({
             type: "POST",
-            url: "http://localhost:64546/api/individual",
+            url: "http://dphomework.azurewebsites.net/api/individual",
+//            url: "http://localhost:64546/api/individual",
             data: {
                 FirstName: $('#firstName').val(),
                 MiddleName: $('#middleName').val(),

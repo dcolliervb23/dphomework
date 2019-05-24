@@ -41,8 +41,16 @@ namespace DpHomework.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Post(AddressViewModel model)
         {
-            _addressService.CreateAddressAsync(model);
-            return Json(new { status = HttpStatusCode.Created });
+            try
+            {
+                var result =  await _addressService.CreateAddressAsync(model);
+                return Json(new { status = HttpStatusCode.Created });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         // PUT: api/Address/5
