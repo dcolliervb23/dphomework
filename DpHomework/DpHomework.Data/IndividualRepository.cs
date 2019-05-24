@@ -26,9 +26,10 @@ namespace DpHomework.Data
         public async Task<IEnumerable<IndividualsAndAddresses>> GetIndividualsAddressesesAsync()
         {
             return _context.IndividualsAndAddresseses.ToList();
+
         }
 
-        public async Task<bool> CreateIndividuals(IEnumerable<Individual> individuals)
+        public async Task<bool> CreateIndividualsAsync(IEnumerable<Individual> individuals)
         {
             foreach (var individual in individuals)
             {
@@ -68,13 +69,20 @@ namespace DpHomework.Data
                     },
                 };
 
-                var result = _context.Database.ExecuteSqlCommand(
+                var individualResult = await _context.Database.ExecuteSqlCommandAsync(
                         "[dbo].[InsertIndividual] @firstName, @middleName, @lastName, @email", individualParams);
 
                 foreach (var address in individual.Address)
                 {
-                    var addressParamName = new SqlParameter[]
+                    var addressParams = new SqlParameter[]
                     {
+                        new SqlParameter()
+                        {
+                            ParameterName = "@individualId",
+                            SqlDbType = SqlDbType.Int,
+                            Direction = ParameterDirection.Input,
+                            Value = individualResult
+                        },
                         new SqlParameter()
                         {
                             ParameterName = "@addressLine1",
@@ -117,6 +125,10 @@ namespace DpHomework.Data
                         },
 
                     };
+
+                    var addressResult = await _context.Database.ExecuteSqlCommandAsync(
+                        "[dbo].[InsertAddress] @addressLine1, @addressLine2, @city, @state, @zip, @individualId",
+                        addressParams);
 
                 }
             }

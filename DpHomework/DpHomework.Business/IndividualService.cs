@@ -22,9 +22,23 @@ namespace DpHomework.Business
             return await _repository.GetIndividualsAsync();
         }
 
-        public async Task<IEnumerable<IndividualsAndAddresses>> GetIndividualsAddressesesAsync()
+        public async Task<IEnumerable<IndividualViewModel>> GetIndividualsAddressesesAsync()
         {
-            return await _repository.GetIndividualsAddressesesAsync();
+            var rawData = await _repository.GetIndividualsAddressesesAsync();
+            var viewModel = new Dictionary<int,IndividualViewModel>();
+            foreach (var data in rawData)
+            {
+                if (viewModel.ContainsKey(data.Id))
+                {
+                    viewModel[data.Id].Addresses.Add(data.MapEntityAddressToViewModel());
+                }
+                else
+                {
+                    viewModel.Add(data.Id, data.MapEntityToViewModel());
+                }
+            }
+
+            return viewModel.Values.ToList();
         }
 
         public async Task<bool> CreateIndividualsAsync(IEnumerable<IndividualViewModel> models)

@@ -120,7 +120,6 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="DphomeworkDbContext.cs" />
-    <Compile Include="IDphomeworkDbContext.cs" />
     <Compile Include="IIndividualRepository.cs" />
     <Compile Include="Individual.cs" />
     <Compile Include="IndividualRepository.cs" />

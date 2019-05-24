@@ -43,12 +43,17 @@
   <ItemGroup>
     <Compile Include="IIndividualService.cs" />
     <Compile Include="IndividualService.cs" />
+    <Compile Include="MappingExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DpHomework.Data\DpHomework.Data.csproj">
       <Project>{6ea017a4-ec2c-4dc3-b37b-aa7834a2cefd}</Project>
       <Name>DpHomework.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DpHomework.Models\DpHomework.Models.csproj">
+      <Project>{02C12BF5-BDD0-48E2-B2A5-7F64C64F53BC}</Project>
+      <Name>DpHomework.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

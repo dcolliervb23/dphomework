@@ -7,5 +7,6 @@ namespace DpHomework.Data
     {
         Task<IEnumerable<Individual>> GetIndividualsAsync();
         Task<IEnumerable<IndividualsAndAddresses>> GetIndividualsAddressesesAsync();
+        Task<bool> CreateIndividualsAsync(IEnumerable<Individual> individuals);
     }
 }

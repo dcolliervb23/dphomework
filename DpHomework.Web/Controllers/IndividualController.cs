@@ -25,7 +25,6 @@ namespace DpHomework.Web.Controllers
         [HttpGet]
         public async Task<ActionResult> GetList()
         {
-//            return new string[] { "value1", "value2" };
             try
             {
                 var individuals = await _individualService.GetIndividualsAddressesesAsync();

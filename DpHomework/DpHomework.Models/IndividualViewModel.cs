@@ -24,7 +24,7 @@ namespace DpHomework.Models
         [MaxLength(250)]
         public string Email { get; set; }
 
-        public IEnumerable<AddressViewModel> Addresses { get; set; }
+        public IList<AddressViewModel> Addresses { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DpHomework.Data;
 using DpHomework.Models;
 
@@ -22,6 +23,36 @@ namespace DpHomework.Business
                     State = x.State,
                     Zip = x.Zip
                 }).ToList()
+            };
+        }
+
+        public static IndividualViewModel MapEntityToViewModel(this IndividualsAndAddresses entity)
+        {
+            return new IndividualViewModel()
+            {
+                Email = entity.Email,
+                FirstName = entity.FirstName,
+                MiddleName = entity.MiddleName,
+                LastName = entity.LastName,
+                Id = entity.Id,
+                Addresses = new List<AddressViewModel>()
+                {
+                    entity.MapEntityAddressToViewModel()
+                }
+            };
+        }
+
+        public static AddressViewModel MapEntityAddressToViewModel(this IndividualsAndAddresses entity)
+        {
+            return new AddressViewModel()
+            {
+                Id = entity.AddressId ?? 0,
+                AddressLine1 = entity.AddressLine1,
+                AddressLine2 = entity.AddressLine2,
+                City = entity.City,
+                State = entity.State,
+                Zip = entity.Zip,
+                IndividualId = entity.Id
             };
         }
         

@@ -1,15 +1,45 @@
 ﻿<html>
 <head>
     <link href="css/site.css" rel="stylesheet" />
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-        
-<div id="app">
-    {{ info }}
-</div>
-        
-<script src="js/site.js"></script>
+    <h2>List of Individuals</h2>
+    <div id="app">
+        <ul>
+            <li v-for="randomDude in info">
+                {{randomDude.lastName}}, {{randomDude.firstName}} {{randomDude.middleName}}
+                <blockquote>
+                    <ul><label>Email:</label><span>{{randomDude.email}}</span></ul>
+                    <ul><label>Addresses:</label>
+                        <ul>
+                            <li v-for="secretLair in randomDude.addresses">
+                                <div>
+                                    <label>Address Line 1: </label><span>{{secretLair.addressLine1}}</span>
+                                </div>
+                                <div>
+                                    <label>Address Line 2: </label><span>{{secretLair.addressLine2}}</span>
+                                </div>
+                                <div>
+                                    <label>City: </label><span>{{secretLair.city}}</span>
+                                </div>
+                                <div>
+                                    <label>State: </label><span>{{secretLair.state}}</span>
+                                </div>
+                                <div>
+                                    <label>Zip: </label><span>{{secretLair.zip}}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </ul>
+                </blockquote>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <script src="lib/bootstrap/dist/js/bootstrap.js"></script> -->
+    <script src="js/site.js"></script>
 </body>
 </html>
