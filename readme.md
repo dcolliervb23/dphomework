@@ -10,6 +10,6 @@ This is a basic proof of concept, demonstrating a web application using the foll
 * MVC
 
 
-[Site Demo]((http://dphomework.azurewebsites.net/main.html)
+[Site Demo](http://dphomework.azurewebsites.net/main.html)
 
 [Swagger Page](http://dphomework.azurewebsites.net/swagger/index.html)
