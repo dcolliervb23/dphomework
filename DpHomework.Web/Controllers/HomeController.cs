@@ -12,6 +12,7 @@ namespace DpHomework.Web.Controllers
     {
         public IActionResult Index()
         {
+            Response.Redirect("main.html");
             return View();
         }
 

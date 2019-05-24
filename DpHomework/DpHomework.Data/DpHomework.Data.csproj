@@ -119,7 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="AddressRepository.cs" />
     <Compile Include="DphomeworkDbContext.cs" />
+    <Compile Include="IAddressRepository.cs" />
     <Compile Include="IIndividualRepository.cs" />
     <Compile Include="Individual.cs" />
     <Compile Include="IndividualRepository.cs" />

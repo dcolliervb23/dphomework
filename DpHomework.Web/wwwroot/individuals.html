@@ -4,36 +4,49 @@
     <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
 </head>
 <body>
+    <div><a href="main.html">Go to Main</a></div>
+    <div><a href="addindividual.html">Add Individuals</a></div>
     <h2>List of Individuals</h2>
     <div id="app">
+        <div>Displaying {{info.length}} records</div>
         <ul>
             <li v-for="randomDude in info">
                 {{randomDude.lastName}}, {{randomDude.firstName}} {{randomDude.middleName}}
                 <blockquote>
-                    <ul><label>Email:</label><span>{{randomDude.email}}</span></ul>
-                    <ul><label>Addresses:</label>
-                        <ul>
-                            <li v-for="secretLair in randomDude.addresses">
-                                <div>
-                                    <label>Address Line 1: </label><span>{{secretLair.addressLine1}}</span>
-                                </div>
-                                <div>
-                                    <label>Address Line 2: </label><span>{{secretLair.addressLine2}}</span>
-                                </div>
-                                <div>
-                                    <label>City: </label><span>{{secretLair.city}}</span>
-                                </div>
-                                <div>
-                                    <label>State: </label><span>{{secretLair.state}}</span>
-                                </div>
-                                <div>
-                                    <label>Zip: </label><span>{{secretLair.zip}}</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </ul>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <ul><label>Email:</label><span>{{randomDude.email}}</span></ul>
+                            <ul v-if="randomDude.addresses !== null">
+                                <label>Addresses:</label>
+                                <ul>
+                                    <li v-for="secretLair in randomDude.addresses">
+                                        <div>
+                                            <label>Address Line 1: </label><span>{{secretLair.addressLine1}}</span>
+                                        </div>
+                                        <div>
+                                            <label>Address Line 2: </label><span>{{secretLair.addressLine2}}</span>
+                                        </div>
+                                        <div>
+                                            <label>City: </label><span>{{secretLair.city}}</span>
+                                        </div>
+                                        <div>
+                                            <label>State: </label><span>{{secretLair.state}}</span>
+                                        </div>
+                                        <div>
+                                            <label>Zip: </label><span>{{secretLair.zip}}</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div class="col-xs-6">
+                            <ul><a v-bind:href="'/AddressPage/AddAddress/' + randomDude.id">Add Address</a></ul>
+                        </div>
+                    </div>
+
                 </blockquote>
             </li>
         </ul>

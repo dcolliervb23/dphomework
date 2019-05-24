@@ -46,13 +46,13 @@ namespace DpHomework.Web.Controllers
         
         // POST: api/Individual
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody]IEnumerable<IndividualViewModel> values)
+        public async Task<ActionResult> Post(IndividualViewModel model)
         {
-            if (values == null)
+            if (model == null)
             {
                 return Json(new {status = HttpStatusCode.BadRequest});
             }
-            var result = await _individualService.CreateIndividualsAsync(values);
+            var result = await _individualService.CreateIndividualsAsync(new List<IndividualViewModel>(){ model });
             if (!result)
             {
                 return Json(new {status = HttpStatusCode.InternalServerError});

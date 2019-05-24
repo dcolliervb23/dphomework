@@ -10,5 +10,6 @@ namespace DpHomework.Business
         Task<IEnumerable<Individual>> GetIndividualsAsync();
         Task<IEnumerable<IndividualViewModel>> GetIndividualsAddressesesAsync();
         Task<bool> CreateIndividualsAsync(IEnumerable<IndividualViewModel> models);
+        Task<IndividualViewModel> GetIndividualById(int id);
     }
 }

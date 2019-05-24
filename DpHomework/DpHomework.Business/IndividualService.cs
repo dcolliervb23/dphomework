@@ -22,6 +22,12 @@ namespace DpHomework.Business
             return await _repository.GetIndividualsAsync();
         }
 
+        public async Task<IndividualViewModel> GetIndividualById(int id)
+        {
+            var individualById = await _repository.GetIndividualById(id);
+            return individualById.MapEntityToViewModel();
+        }
+
         public async Task<IEnumerable<IndividualViewModel>> GetIndividualsAddressesesAsync()
         {
             var rawData = await _repository.GetIndividualsAddressesesAsync();
@@ -47,7 +53,7 @@ namespace DpHomework.Business
             {
                 if (m == null) throw new ArgumentNullException(nameof(m));
                 return m.MapViewModelToEntityModel();
-            });
+            }).ToList();
             var result = await _repository.CreateIndividualsAsync(entities);
             return result;
         }

@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressService.cs" />
+    <Compile Include="IAddressService.cs" />
     <Compile Include="IIndividualService.cs" />
     <Compile Include="IndividualService.cs" />
     <Compile Include="MappingExtensions.cs" />

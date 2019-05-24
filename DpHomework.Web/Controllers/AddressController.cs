@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using DpHomework.Business;
+using DpHomework.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +14,15 @@ namespace DpHomework.Web.Controllers
     [Route("api/Address")]
     public class AddressController : Controller
     {
+        private IAddressService _addressService;
+        private IIndividualService _individualService;
+
+        public AddressController(IAddressService addressService, IIndividualService individualService)
+        {
+            _addressService = addressService;
+            _individualService = individualService;
+        }
+
         // GET: api/Address
         [HttpGet]
         public IEnumerable<string> GetList()
@@ -27,10 +39,12 @@ namespace DpHomework.Web.Controllers
         
         // POST: api/Address
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<ActionResult> Post(AddressViewModel model)
         {
+            _addressService.CreateAddressAsync(model);
+            return Json(new { status = HttpStatusCode.Created });
         }
-        
+
         // PUT: api/Address/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
@@ -42,5 +56,7 @@ namespace DpHomework.Web.Controllers
         public void Delete(int id)
         {
         }
+
+
     }
 }
